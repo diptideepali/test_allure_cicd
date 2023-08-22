@@ -73,7 +73,7 @@ jobs:
       - name: Send Email Notification
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.example.com  # Replace with your SMTP server address
+          server_address: smtp.gmail.com  # Replace with your SMTP server address
           server_port: 587  # Replace with your SMTP server port
           username: ${{ secrets.SMTP_USERNAME }}  # Add SMTP username secret
           password: ${{ secrets.SMTP_PASSWORD }}  # Add SMTP password secret
