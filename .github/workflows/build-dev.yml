@@ -68,16 +68,14 @@ jobs:
       - name: Get GITHUB_ environments just to check
         run: |
           printenv | grep GITHUB_
-
-      # Add this step to send an email notification
       - name: Send Email Notification
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com  # Replace with your SMTP server address
-          server_port: 587  # Replace with your SMTP server port
-          username: ${{ secrets.SMTP_USERNAME }}  # Add SMTP username secret
-          password: ${{ secrets.SMTP_PASSWORD }}  # Add SMTP password secret
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }} 
           from: diptitawari07@gmail.com
           subject: Allure Test Results
-          to: dipti_tiwari@naxgrp.com  # Replace with the recipient's email address
+          to: dipti_tiwari@naxgrp.com
           body: Test results are available at https://testapiautomation.testops.cloud/project/67/launches
