@@ -59,15 +59,17 @@ jobs:
           export $(allurectl job-run env)
           printenv | grep TEST_
           printenv | grep ALLURE_
-        env:
-          TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
-          TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
-      - name: Get ALLURE_ environments just to check
+      
+      - name: Download Project Name Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: project-name
+      
+      - name: Read Project Name
         run: |
-          printenv | grep ALLURE_
-      - name: Get GITHUB_ environments just to check
-        run: |
-          printenv | grep GITHUB_
+          project_name=$(cat project-name/project-name.txt)
+          echo "The project name is: $project_name"
+      
       - name: Send Email Notification
         uses: dawidd6/action-send-mail@v3
         with:
@@ -76,18 +78,17 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }} 
           from: diptitawari07@gmail.com
-          subject: ✅ Allure Test Results for NAXGroup
+          subject: "✅ Allure Test Results for $project_name"
           to: dipti_tiwari@naxgrp.com
           html_body: |
             <html>
             <head></head>
             <body>
-              <p>Hello,</p>
-              <p>The Allure Test Results for Project NAXGroup are now available.</p>
+              <p>Hello Team,</p>
+              <p>The Allure Test Results for Project $project_name are now available.</p>
               <p>You can view the results by following this link:</p>
               <p><a href="https://testapiautomation.testops.cloud/project/67/launches">View Test Results</a></p>
               <p>Thank you for using our testing services!</p>
               <p>Best regards,<br>Dipti</p>
             </body>
             </html>
-              
