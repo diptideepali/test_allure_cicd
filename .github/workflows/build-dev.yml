@@ -79,7 +79,7 @@ jobs:
           subject: ✅ Allure Test Results for NAXGroup
           to: dipti_tiwari@naxgrp.com
           content_type: html  
-          body: |
+          body:
             <html>
             <head></head>
             <body>
