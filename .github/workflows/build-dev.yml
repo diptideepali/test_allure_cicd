@@ -76,6 +76,17 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }} 
           from: diptitawari07@gmail.com
-          subject: Allure Test Results
+          subject: ✅ Allure Test Results Available for Project XYZ
           to: dipti_tiwari@naxgrp.com
-          body: Test results are available at https://testapiautomation.testops.cloud/project/67/launches
+          body: |
+      <html>
+      <head></head>
+      <body>
+        <p>Hello,</p>
+        <p>The Allure Test Results for Project XYZ are now available.</p>
+        <p>You can view the results by following this link:</p>
+        <p><a href="https://testapiautomation.testops.cloud/project/67/launches">View Test Results</a></p>
+        <p>Thank you for using our testing services!</p>
+        <p>Best regards,<br>Your Name</p>
+      </body>
+      </html>
