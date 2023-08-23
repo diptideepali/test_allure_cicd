@@ -82,7 +82,7 @@ jobs:
             <html>
             <head></head>
             <body>
-              <p>Hello export $(allurectl job-run env) ,</p>
+              <p>Hello export ${{ github.event.inputs.TEST_ENDPOINT }} ,</p>
               <p>The Allure Test Results for Project NAXGroup are now available.</p>
               <p>You can view the results by following this link:</p>
               <p><a href="https://testapiautomation.testops.cloud/project/67/launches">View Test Results</a></p>
